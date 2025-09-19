@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Jujifina</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .contact-form input,
+        .contact-form textarea {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+            outline: none;
+        }
+        
+        .contact-info-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            border: none;
+        }
+    </style>
+</head>
+<body class="bg-purple-50 text-gray-800 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html">
+                        <img src="img/logo1.jpg" alt="Jujifina Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 rounded-md text-purple-600 hover:bg-purple-100">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Home</a>
+                        <a href="about.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">About</a>
+                        <a href="music.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Music</a>
+                        <a href="gallery.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Gallery</a>
+                        <a href="contact.html" class="px-3 py-2 rounded-md text-sm font-medium text-purple-900 bg-purple-100">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">About</a>
+                <a href="music.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Music</a>
+                <a href="gallery.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Gallery</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-purple-900 bg-purple-100">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-purple-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h1>
+            <p class="text-xl text-purple-200">We'd love to hear from you</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- Contact Info -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="contact-info-card bg-white p-8 rounded-xl shadow-md text-center">
+                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-map-marker-alt text-2xl text-purple-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Location</h3>
+                <p class="text-gray-600">Lagos, Nigeria</p>
+            </div>
+            
+            <div class="contact-info-card bg-white p-8 rounded-xl shadow-md text-center">
+                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-envelope text-2xl text-purple-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Email Us</h3>
+                <p class="text-gray-600">info@jujifina.com</p>
+                <p class="text-gray-600">booking@jujifina.com</p>
+            </div>
+            
+            <div class="contact-info-card bg-white p-8 rounded-xl shadow-md text-center">
+                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-phone-alt text-2xl text-purple-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Call Us</h3>
+                <p class="text-gray-600">+234 800 000 0000</p>
+                <p class="text-gray-600">+234 900 000 0000</p>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Contact Form -->
+            <div>
+                <h2 class="text-3xl font-bold text-purple-900 mb-6">Send Us a Message</h2>
+                <form id="contact-form" class="space-y-6 contact-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                            <input type="text" id="name" name="name" required 
+                                class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" required 
+                                class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <input type="text" id="subject" name="subject" required 
+                            class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required 
+                            class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" 
+                            class="bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-full transition-colors duration-300">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Map and Social -->
+            <div>
+                <div class="map-container bg-white p-1 rounded-xl overflow-hidden mb-8">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.589949647372!2d3.379910415231351!3d6.453102395329646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae6788451%3A0x5d9f4641a190acd9!2sLagos%20Island%2C%20Lagos%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1620000000000!5m2!1sen!2sng" 
+                            allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Connect With Us</h3>
+                    <p class="text-gray-600 mb-6">Follow Jujifina on social media for the latest updates, behind-the-scenes content, and more.</p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-spotify text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-tiktok text-xl"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-100">
+                        <h4 class="font-medium text-gray-900 mb-3">Subscribe to Our Newsletter</h4>
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" 
+                                class="flex-1 px-4 py-3 rounded-l-lg border border-r-0 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 rounded-r-lg transition-colors duration-300">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-purple-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="img/logo1.jpg" alt="Jujifina Logo" class="h-12 w-auto mb-4">
+                    <p class="text-purple-200">Music that connects cultures and inspires souls.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-purple-200 hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="text-purple-200 hover:text-white">About</a></li>
+                        <li><a href="music.html" class="text-purple-200 hover:text-white">Music</a></li>
+                        <li><a href="gallery.html" class="text-purple-200 hover:text-white">Gallery</a></li>
+                        <li><a href="contact.html" class="text-purple-200 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-spotify"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-purple-200">Email: info@jujifina.com</p>
+                    <p class="text-purple-200">Booking: booking@jujifina.com</p>
+                </div>
+            </div>
+            <div class="border-t border-purple-800 mt-12 pt-8 text-center text-purple-400 text-sm">
+                <p>&copy; <span id="current-year"></span> Jujifina. All Rights Reserved.</p>
+                <p class="mt-2">Created by Egbinade Victor</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real implementation, you would send the form data to a server
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

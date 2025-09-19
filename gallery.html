@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Jujifina</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Simple Lightbox for images -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css">
+    <style>
+        /* Video section styling */
+        .video-section {
+            margin-bottom: 4rem;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .video-item {
+            background: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .video-item video {
+            width: 100%;
+            display: block;
+        }
+        .video-info {
+            padding: 1rem;
+            background: white;
+        }
+        .video-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: #4b2e83;
+        }
+        .video-info p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        /* Image gallery section */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .gallery-item {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.03);
+        }
+        .image-info {
+            padding: 1rem;
+            background: white;
+        }
+        .image-info h3 {
+            margin: 0 0 0.25rem 0;
+            color: #4b2e83;
+        }
+        .image-info p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Custom styles for gallery */
+        .gallery-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            position: relative;
+            aspect-ratio: 16/9;
+        }
+        
+        .gallery-item img, 
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(76, 29, 149, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item .play-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7c3aed;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .play-icon {
+            transform: scale(1.1);
+            background: white;
+        }
+        
+        .filter-active {
+            background-color: #7c3aed;
+            color: white;
+        }
+        
+        /* Lightbox custom styles */
+        .lg-backdrop {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .lg-outer .lg-thumb-outer {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .lg-actions .lg-next, 
+        .lg-actions .lg-prev {
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+        }
+        
+        .lg-actions .lg-next:hover, 
+        .lg-actions .lg-prev:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-item .play-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-purple-50 text-gray-800 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html">
+                        <img src="img/logo1.jpg" alt="Jujifina Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 rounded-md text-purple-600 hover:bg-purple-100">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Home</a>
+                        <a href="about.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">About</a>
+                        <a href="music.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Music</a>
+                        <a href="gallery.html" class="px-3 py-2 rounded-md text-sm font-medium text-purple-900 bg-purple-100">Gallery</a>
+                        <a href="contact.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">About</a>
+                <a href="music.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Music</a>
+                <a href="gallery.html" class="block px-3 py-2 rounded-md text-base font-medium text-purple-900 bg-purple-100">Gallery</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-purple-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Gallery</h1>
+            <p class="text-xl text-purple-200">Moments from performances, studio sessions, and more</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-2 mb-12">
+            <button class="filter-btn filter-active px-4 py-2 rounded-full text-sm font-medium bg-purple-600 text-white" data-filter="all">All</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-purple-700 border border-purple-200 hover:bg-purple-50" data-filter="performance">Performances</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-purple-700 border border-purple-200 hover:bg-purple-50" data-filter="studio">Studio Sessions</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-purple-700 border border-purple-200 hover:bg-purple-50" data-filter="behind-scenes">Behind the Scenes</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-purple-700 border border-purple-200 hover:bg-purple-50" data-filter="photos">Photos</button>
+        </div>
+        
+        <!-- Videos Section -->
+        <section class="video-section">
+            <h2 class="text-3xl font-bold text-center mb-6">Videos</h2>
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-item">
+                    <video controls>
+                        <source src="vid/VID-20250919-WA0013.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-info">
+                        <h3>Live Performance</h3>
+                        <p>2023 Tour</p>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-item">
+                    <video controls>
+                        <source src="vid/VID-20250919-WA0014.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-info">
+                        <h3>Studio Session</h3>
+                        <p>Recording New Tracks</p>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-item">
+                    <video controls>
+                        <source src="vid/VID-20250919-WA0019.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-info">
+                        <h3>Live at Festival</h3>
+                        <p>Summer 2023</p>
+                    </div>
+                </div>
+                
+                <!-- Video 4 -->
+                <div class="video-item">
+                    <video controls>
+                        <source src="vid/VID-20250919-WA0020.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-info">
+                        <h3>Backstage</h3>
+                        <p>Tour Moments</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Images Section -->
+        <section class="image-section">
+            <h2 class="text-3xl font-bold text-center mb-6">Photos</h2>
+            <div class="image-gallery" id="image-gallery">
+                <!-- Image 1 -->
+                <div class="gallery-item">
+                    <a href="img/juj1.jpg" class="lightbox">
+                        <img src="img/juj1.jpg" alt="Jujifina Portrait">
+                    </a>
+                    <div class="image-info">
+                        <h3>Jujifina</h3>
+                        <p>Artist Portrait</p>
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="gallery-item">
+                    <a href="img/juj2.jpg" class="lightbox">
+                        <img src="img/juj2.jpg" alt="Behind the Scenes">
+                    </a>
+                    <div class="image-info">
+                        <h3>Behind the Scenes</h3>
+                        <p>Studio Session</p>
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="gallery-item">
+                    <a href="img/juj3.jpg" class="lightbox">
+                        <img src="img/juj3.jpg" alt="Live Performance">
+                    </a>
+                    <div class="image-info">
+                        <h3>Live Performance</h3>
+                        <p>On Stage</p>
+                    </div>
+                </div>
+
+                <!-- Image 4 -->
+                <div class="gallery-item">
+                    <a href="img/album1.jpg" class="lightbox">
+                        <img src="img/album1.jpg" alt="Album Cover">
+                    </a>
+                    <div class="image-info">
+                        <h3>Album Artwork</h3>
+                        <p>Latest Release</p>
+                    </div>
+                </div>
+
+                <!-- Image 5 -->
+                <div class="gallery-item">
+                    <a href="img/album2.jpg" class="lightbox">
+                        <img src="img/album2.jpg" alt="Album Cover">
+                    </a>
+                    <div class="image-info">
+                        <h3>Album Cover</h3>
+                        <p>Special Edition</p>
+                    </div>
+                </div>
+
+                <!-- Image 6 -->
+                <div class="gallery-item">
+                    <a href="img/album4.jpg" class="lightbox">
+                        <img src="img/album4.jpg" alt="Album Art">
+                    </a>
+                    <div class="image-info">
+                        <h3>Album Art</h3>
+                        <p>Limited Edition</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-purple-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="img/logo1.jpg" alt="Jujifina Logo" class="h-12 w-auto mb-4">
+                    <p class="text-purple-200">Music that connects cultures and inspires souls.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-purple-200 hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="text-purple-200 hover:text-white">About</a></li>
+                        <li><a href="music.html" class="text-purple-200 hover:text-white">Music</a></li>
+                        <li><a href="gallery.html" class="text-purple-200 hover:text-white">Gallery</a></li>
+                        <li><a href="contact.html" class="text-purple-200 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-spotify"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-purple-200">Email: info@jujifina.com</p>
+                    <p class="text-purple-200">Booking: booking@jujifina.com</p>
+                </div>
+            </div>
+            <div class="border-t border-purple-800 mt-12 pt-8 text-center text-purple-400 text-sm">
+                <p>&copy; <span id="current-year"></span> Jujifina. All Rights Reserved.</p>
+                <p class="mt-2">Created by Egbinade Victor</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.umd.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize lightbox for images only
+            lightGallery(document.getElementById('image-gallery'), {
+                selector: '.lightbox',
+                download: false,
+                showZoomInOutIcons: true,
+                actualSize: false
+            });
+            
+            // Mobile menu toggle
+            const menuButton = document.querySelector('.mobile-menu-button');
+            const menu = document.querySelector('.mobile-menu');
+            
+            if (menuButton && menu) {
+                menuButton.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                    // Toggle menu icon
+                    const icon = menuButton.querySelector('i');
+                    if (icon) {
+                        if (menu.classList.contains('hidden')) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        } else {
+                            icon.classList.remove('fa-bars');
+                            icon.classList.add('fa-times');
+                        }
+                    }
+                });
+            }
+            
+            // Pause other videos when one starts playing
+            document.querySelectorAll('video').forEach(video => {
+                video.addEventListener('play', function() {
+                    document.querySelectorAll('video').forEach(otherVideo => {
+                        if (otherVideo !== video && !otherVideo.paused) {
+                            otherVideo.pause();
+                        }
+                    });
+                });
+            });
+            
+            // Filter gallery items
+            function filterGallery(filterValue) {
+                const videoSection = document.querySelector('.video-section');
+                const imageSection = document.querySelector('.image-section');
+                
+                if (filterValue === 'all') {
+                    videoSection.style.display = 'block';
+                    imageSection.style.display = 'block';
+                } else if (filterValue === 'videos') {
+                    videoSection.style.display = 'block';
+                    imageSection.style.display = 'none';
+                } else if (filterValue === 'photos') {
+                    videoSection.style.display = 'none';
+                    imageSection.style.display = 'block';
+                }
+            }
+            
+            // Initialize filter buttons
+            initializeFilterButtons();
+            
+            // Initialize gallery with all items visible
+            filterGallery(activeFilter);
+            
+            // Load more functionality
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    // In a real implementation, you would load more items via AJAX
+                    loadMoreBtn.disabled = true;
+                    loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Loading...';
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        alert('In a real implementation, this would load more gallery items.');
+                        loadMoreBtn.disabled = false;
+                        loadMoreBtn.innerHTML = 'Load More';
+                    }, 1000);
+                });
+            }
+            
+            // Pause all videos when lightbox is closed
+            document.addEventListener('onCloseAfter.lg', function() {
+                document.querySelectorAll('video').forEach(video => {
+                    video.pause();
+                    const playButton = video.closest('.gallery-item')?.querySelector('.play-button');
+                    if (playButton) {
+                        playButton.innerHTML = '<i class="fas fa-play text-purple-700 text-xl"></i>';
+                    }
+                });
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (menu && menuButton) {
+                        menu.classList.add('hidden');
+                        const icon = menuButton.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

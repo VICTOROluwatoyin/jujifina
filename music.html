@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music - Jujifina</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-purple-50 text-gray-800 font-sans">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <a href="index.html" class="flex-shrink-0">
+                <img src="img/logo1.jpg" alt="Jujifina Logo" class="h-12 w-auto">
+            </a>
+            
+            <!-- Mobile menu button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Navigation Links -->
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="text-gray-700 hover:text-purple-600 font-medium">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-purple-600 font-medium">About</a>
+                <a href="music.html" class="text-purple-600 hover:text-purple-800 font-medium">Music</a>
+                <a href="gallery.html" class="text-gray-700 hover:text-purple-600 font-medium">Gallery</a>
+                <a href="contact.html" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium transition-colors">Contact</a>
+            </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Home</a>
+                        <a href="about.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">About</a>
+                        <a href="music.html" class="px-3 py-2 rounded-md text-sm font-medium text-purple-900 bg-purple-100">Music</a>
+                        <a href="gallery.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Gallery</a>
+                        <a href="contact.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">About</a>
+                <a href="music.html" class="block px-3 py-2 rounded-md text-base font-medium text-purple-900 bg-purple-100">Music</a>
+                <a href="gallery.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Gallery</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-900">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-purple-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Music</h1>
+            <p class="text-xl text-purple-200">Explore Jujifina's Discography</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- Latest Release -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-purple-900 mb-8">Latest Release</h2>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-xl">
+                <div class="md:flex">
+                    <div class="md:w-1/3">
+                        <img src="img/album1.jpg" alt="Latest Release" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 md:w-2/3">
+                        <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full mb-4">NEW RELEASE</span>
+                        <h3 class="text-2xl font-bold mb-2">Album Title</h3>
+                        <p class="text-gray-600 mb-6">2023 • 12 Tracks • 45 min</p>
+                        <p class="text-gray-700 mb-6">The latest album from Jujifina featuring a blend of Afrobeat, R&B, and soulful melodies that showcase her unique vocal style and production skills.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://open.spotify.com/album/0NcsWctgDBRhFWTDuwjEVG" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full font-medium transition-colors flex items-center">
+                                <i class="fab fa-spotify mr-2"></i> Listen on Spotify
+                            </a>
+                            <button class="border border-purple-600 text-purple-600 hover:bg-purple-50 px-6 py-3 rounded-full font-medium transition-colors flex items-center">
+                                <i class="fas fa-play mr-2"></i> Play All
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discography -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-purple-900 mb-8">Discography</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2 mb-8">
+                <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-purple-600 text-white" data-filter="all">All</button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-purple-700 border border-purple-200 hover:bg-purple-50" data-filter="album">Albums</button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-purple-700 border border-purple-200 hover:bg-purple-50" data-filter="single">Singles</button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-purple-700 border border-purple-200 hover:bg-purple-50" data-filter="featured">Featured</button>
+            </div>
+            
+            <!-- Music Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Album 1 -->
+                <div class="music-item bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" data-category="album">
+                    <div class="relative">
+                        <img src="img/album1.jpg" alt="Album 1" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-purple-900 bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" class="text-white text-4xl hover:text-purple-200 play-album" data-album-id="1">
+                                <i class="fas fa-play-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900">Album Title 1</h3>
+                        <p class="text-gray-600 mt-1">2023 • Album</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="https://open.spotify.com/album/0NcsWctgDBRhFWTDuwjEVG" target="_blank" class="text-purple-600 hover:text-purple-800 font-medium text-sm flex items-center">
+                                <i class="fab fa-spotify mr-2"></i> Listen
+                            </a>
+                            <span class="text-xs text-gray-500">12 tracks • 45 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 2 -->
+                <div class="music-item bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" data-category="single">
+                    <div class="relative">
+                        <img src="img/album2.jpg" alt="Album 2" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-purple-900 bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" class="text-white text-4xl hover:text-purple-200 play-album" data-album-id="2">
+                                <i class="fas fa-play-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900">Single Title</h3>
+                        <p class="text-gray-600 mt-1">2023 • Single</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="https://open.spotify.com/album/7DfzOeXh4TiO63ez3xxYc0" target="_blank" class="text-purple-600 hover:text-purple-800 font-medium text-sm flex items-center">
+                                <i class="fab fa-spotify mr-2"></i> Listen
+                            </a>
+                            <span class="text-xs text-gray-500">1 track • 3:45 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 3 -->
+                <div class="music-item bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" data-category="album">
+                    <div class="relative">
+                        <img src="img/album 6.jpg" alt="Album 6" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-purple-900 bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" class="text-white text-4xl hover:text-purple-200 play-album" data-album-id="3">
+                                <i class="fas fa-play-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900">Album Title 2</h3>
+                        <p class="text-gray-600 mt-1">2022 • Album</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="https://open.spotify.com/album/5IECRyaxGGApft3EETIXzm" target="_blank" class="text-purple-600 hover:text-purple-800 font-medium text-sm flex items-center">
+                                <i class="fab fa-spotify mr-2"></i> Listen
+                            </a>
+                            <span class="text-xs text-gray-500">10 tracks • 38 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 4 -->
+                <div class="music-item bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" data-category="single">
+                    <div class="relative">
+                        <img src="img/album4.jpg" alt="Album 4" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-purple-900 bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" class="text-white text-4xl hover:text-purple-200 play-album" data-album-id="4">
+                                <i class="fas fa-play-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900">Single Title 2</h3>
+                        <p class="text-gray-600 mt-1">2022 • Single</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="https://open.spotify.com/artist/48fnxlQYnEkNPFWIyaI9Iu" target="_blank" class="text-purple-600 hover:text-purple-800 font-medium text-sm flex items-center">
+                                <i class="fab fa-spotify mr-2"></i> Listen
+                            </a>
+                            <span class="text-xs text-gray-500">1 track • 3:12 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 5 -->
+                <div class="music-item bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" data-category="album">
+                    <div class="relative">
+                        <img src="img/album5.jpg" alt="Album 5" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-purple-900 bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" class="text-white text-4xl hover:text-purple-200 play-album" data-album-id="5">
+                                <i class="fas fa-play-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900">Album Title 3</h3>
+                        <p class="text-gray-600 mt-1">2021 • Album</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="https://open.spotify.com/artist/48fnxlQYnEkNPFWIyaI9Iu?si=qP-ZiDG_TYumbr7B-iRBCw" target="_blank" class="text-purple-600 hover:text-purple-800 font-medium text-sm flex items-center">
+                                <i class="fab fa-spotify mr-2"></i> Listen
+                            </a>
+                            <span class="text-xs text-gray-500">8 tracks • 32 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spotify Player Section -->
+        <section class="bg-purple-900 rounded-2xl p-8 md:p-12 text-white mb-20">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6">Listen on Spotify</h2>
+                <p class="text-purple-200 mb-8 max-w-2xl mx-auto">Follow Jujifina on Spotify to stay updated with all the latest releases and playlists.</p>
+                <div class="bg-black bg-opacity-30 rounded-xl p-6">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                        <img src="img/album1.jpg" alt="Jujifina on Spotify" class="w-32 h-32 rounded-lg">
+                        <div class="text-left">
+                            <h3 class="text-xl font-bold">Jujifina on Spotify</h3>
+                            <p class="text-purple-200 text-sm mb-4">Artist • 1,234 monthly listeners</p>
+                            <a href="https://open.spotify.com/artist/48fnxlQYnEkNPFWIyaI9Iu" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-medium inline-flex items-center">
+                                <i class="fab fa-spotify mr-2"></i> Follow on Spotify
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-purple-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="img/logo1.jpg" alt="Jujifina Logo" class="h-12 w-auto mb-4">
+                    <p class="text-purple-200">Music that connects cultures and inspires souls.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-purple-200 hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="text-purple-200 hover:text-white">About</a></li>
+                        <li><a href="music.html" class="text-purple-200 hover:text-white">Music</a></li>
+                        <li><a href="gallery.html" class="text-purple-200 hover:text-white">Gallery</a></li>
+                        <li><a href="contact.html" class="text-purple-200 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-spotify"></i></a>
+                        <a href="#" class="text-purple-200 hover:text-white text-xl"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-purple-200">Email: info@jujifina.com</p>
+                    <p class="text-purple-200">Booking: booking@jujifina.com</p>
+                </div>
+            </div>
+            <div class="border-t border-purple-800 mt-12 pt-8 text-center text-purple-400 text-sm">
+                <p>&copy; <span id="current-year"></span> Jujifina. All Rights Reserved.</p>
+                <p class="mt-2">Created by Egbinade Victor</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const musicItems = document.querySelectorAll('.music-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active', 'bg-purple-600', 'text-white'));
+                filterBtns.forEach(b => b.classList.add('bg-white', 'text-purple-700', 'border', 'border-purple-200'));
+                
+                btn.classList.add('active', 'bg-purple-600', 'text-white');
+                btn.classList.remove('bg-white', 'text-purple-700', 'border', 'border-purple-200');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                // Filter items
+                musicItems.forEach(item => {
+                    if (filter === 'all') {
+                        item.style.display = 'block';
+                    } else {
+                        if (item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Play album functionality
+        document.querySelectorAll('.play-album').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const albumId = btn.getAttribute('data-album-id');
+                // Here you would typically open a modal or play the album
+                console.log('Playing album:', albumId);
+                // For now, we'll just log it to the console
+            });
+        });
+    </script>
+</body>
+</html>
